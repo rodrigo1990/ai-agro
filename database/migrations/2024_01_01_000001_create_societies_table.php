@@ -15,9 +15,9 @@ return new class extends Migration
         Schema::create('societies', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('razon_social');
-            $table->string('nro_identificacion_fiscal', 100)->nullable();
-            $table->string('pais', 100)->default('Argentina');
+            $table->string('business_name');
+            $table->string('tax_id', 100)->nullable();
+            $table->string('country', 100)->default('Argentina');
             $table->string('logo')->nullable()->comment('Path to society logo image');
             $table->timestamps();
         });

@@ -7,24 +7,24 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Etiquetas — tags/labels used to classify and filter entities.
-     * Tags appear across: Productores, Establecimientos, Lotes, Campañas.
+     * Tags — tags/labels used to classify and filter entities.
+     * Tags appear across: Farmers, Establishments, Plots, Campaigns.
      */
     public function up(): void
     {
-        Schema::create('etiquetas', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->foreignId('society_id')->constrained('societies')->onDelete('cascade');
-            $table->string('nombre', 100);
+            $table->string('name', 100);
             $table->string('color', 20)->nullable()->comment('Hex color code for UI display');
             $table->timestamps();
 
-            $table->unique(['society_id', 'nombre']);
+            $table->unique(['society_id', 'name']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('etiquetas');
+        Schema::dropIfExists('tags');
     }
 };

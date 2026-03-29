@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Lote_Usuario — pivot table assigning users to specific plots (lotes).
-     * A lote can be assigned to multiple SIMA users for monitoring/access purposes.
+     * Plot_User — pivot table assigning users to specific plots.
+     * A plot can be assigned to multiple SIMA users for monitoring/access purposes.
      */
     public function up(): void
     {
-        Schema::create('lote_usuario', function (Blueprint $table) {
+        Schema::create('plot_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('lote_id')->constrained('lotes')->onDelete('cascade');
+            $table->foreignId('plot_id')->constrained('plots')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
 
-            $table->unique(['lote_id', 'user_id']);
+            $table->unique(['plot_id', 'user_id']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('lote_usuario');
+        Schema::dropIfExists('plot_user');
     }
 };

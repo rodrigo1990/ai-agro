@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('establishments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('farmer_id')->nullable()->constrained('farmers')->onDelete('set null');
+            $table->foreignId('farmer_id')->constrained('farmers')->onDelete('set null');
             $table->string('name');
             $table->string('external_code', 100)->nullable()->comment('External system reference code');
             $table->string('locality')->nullable()->comment('City/town name or address search string');

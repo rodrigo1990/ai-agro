@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('plots', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('farmer_id')->nullable()->constrained('farmers')->onDelete('set null');
-            $table->foreignId('establishment_id')->nullable()->constrained('establishments')->onDelete('set null');
+            $table->foreignId('farmer_id')->constrained('farmers')->onDelete('set null');
+            $table->foreignId('establishment_id')->constrained('establishments')->onDelete('set null');
             $table->string('name');
             $table->boolean('active')->default(true);
             $table->decimal('area', 10, 2)->comment('Surface area in hectares');

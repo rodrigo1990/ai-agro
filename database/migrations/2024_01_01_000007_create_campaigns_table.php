@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('farmer_id')->constrained('farmers')->onDelete('set null');
-            $table->foreignId('establishment_id')->constrained('establishments')->onDelete('set null');
-            $table->foreignId('plot_id')->constrained('plots')->onDelete('set null');
-            $table->foreignId('crop_plan_id')->constrained('crop_plans')->onDelete('set null');
+            $table->foreignId('farmer_id')->constrained('farmers');
+            $table->foreignId('establishment_id')->constrained('establishments');
+            $table->foreignId('plot_id')->constrained('plots');
+            $table->foreignId('crop_plan_id')->constrained('crop_plans');
 
             // Sowing dates
             $table->date('target_sowing_date')->comment('Planned sowing date');

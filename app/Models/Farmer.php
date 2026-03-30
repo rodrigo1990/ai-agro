@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Database\Factories\FarmerFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,6 +13,9 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 #[Fillable(['society_id', 'name', 'last_name', 'tax_id', 'user_id', 'external_code', 'notes'])]
 class Farmer extends Model
 {
+    /** @use HasFactory<FarmerFactory> */
+    use HasFactory;
+
     public function society(): BelongsTo
     {
         return $this->belongsTo(Society::class);

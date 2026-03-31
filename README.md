@@ -2,4 +2,5 @@
 
 ## Diagram Entity Relation
 
-![AI-Agro DB (1)](https://github.com/user-attachments/assets/b5b06565-6bff-46de-8754-28dff76c14e1)
+![AI-Agro DB (2)](https://github.com/user-attachments/assets/9018dca2-5dae-45a9-8055-1e399f623299)
+

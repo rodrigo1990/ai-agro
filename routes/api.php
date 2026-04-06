@@ -11,6 +11,10 @@ use App\Http\Controllers\SocietyController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
+
 Route::get('/societies',     [SocietyController::class,     'getAllSocieties']);
 Route::get('/farmers',       [FarmerController::class,       'getAllFarmers']);
 Route::get('/establishments',[EstablishmentController::class,'getAllEstablishments']);

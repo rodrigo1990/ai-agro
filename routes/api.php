@@ -11,6 +11,8 @@ use App\Http\Controllers\PlotController;
 use App\Http\Controllers\SocietyController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();

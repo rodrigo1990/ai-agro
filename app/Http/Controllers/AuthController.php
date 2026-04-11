@@ -23,7 +23,7 @@ class AuthController extends Controller
         }
 
         if (Auth::attempt($credentials)) {
-            $request->user()->currentAccessToken()?->delete();
+            $request->user()->tokens()->delete();
             $token = $request->user()->createToken('login')->plainTextToken;
             return response()->json(['success' => true, 'token' => $token,'user' => $request->user()]);
         }

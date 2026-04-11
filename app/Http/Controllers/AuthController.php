@@ -19,7 +19,7 @@ class AuthController extends Controller
             ]);
         }catch (ValidationException $e) {
             if($e->status === 422)
-                return response()->json(['success' => false, 'message' => 'Email is invalid'], 401);
+                return response()->json(['success' => false, 'message' => 'Emailo or password is invalid'], 401);
         }
 
         if (Auth::attempt($credentials)) {

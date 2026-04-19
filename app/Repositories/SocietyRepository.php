@@ -12,4 +12,9 @@ class SocietyRepository implements SocietyRepositoryInterface
     {
         return Society::all();
     }
+
+    public function getByUserId(int $id): ?Society
+    {
+        return Society::find($id);
+    }
 }

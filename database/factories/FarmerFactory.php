@@ -14,7 +14,6 @@ class FarmerFactory extends Factory
     public function definition(): array
     {
         return [
-            'society_id'    => Society::factory(),
             'name'          => fake()->firstName(),
             'last_name'     => fake()->lastName(),
             'tax_id'        => fake()->numerify('##-########-#'),

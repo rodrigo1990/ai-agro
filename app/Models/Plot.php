@@ -37,10 +37,6 @@ class Plot extends Model
         return $this->belongsTo(Establishment::class);
     }
 
-    public function users(): BelongsToMany
-    {
-        return $this->belongsToMany(User::class, 'plot_user')->withTimestamps();
-    }
 
     public function campaigns(): HasMany
     {

@@ -17,8 +17,13 @@ class SocietyService
         return $this->repository->getAll();
     }
 
-    public function getSocietyByUserId(int $id): ?Society
+    public function getSocietyByUserId(int $userId): ?Society
     {
-        return $this->repository->getByUserId($id);
+        return $this->repository->getByUserId($userId);
+    }
+
+    public function saveSocietyByUserId(int $userId, array $data): Society
+    {
+        return $this->repository->saveByUserId($userId, $data);
     }
 }

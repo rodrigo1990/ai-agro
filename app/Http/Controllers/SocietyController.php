@@ -27,4 +27,18 @@ class SocietyController extends Controller
 
         return response()->json($society);
     }
+
+    public function saveSocietyByAuth(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'business_name' => 'required|string|max:255',
+            'tax_id'        => 'required|string|max:50',
+            'country'       => 'sometimes|string|max:100',
+            'logo'          => 'sometimes|nullable|string',
+        ]);
+
+        $society = $this->service->saveSocietyByUserId($request->user()->id, $validated);
+
+        return response()->json($society);
+    }
 }

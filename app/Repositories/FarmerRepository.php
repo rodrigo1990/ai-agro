@@ -12,4 +12,17 @@ class FarmerRepository implements FarmerRepositoryInterface
     {
         return Farmer::all();
     }
+
+    public function getAllByUserId(int $userId): Collection
+    {
+        return Farmer::where('user_id', $userId)->get();
+    }
+
+    public function save(int $userId, array $data): Farmer
+    {
+        return Farmer::updateOrCreate(
+            ['user_id' => $userId],
+            array_merge($data,)
+        );
+    }
 }

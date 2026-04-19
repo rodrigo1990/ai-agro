@@ -24,6 +24,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/society/',   [SocietyController::class, 'getSocietyByAuth']);
     Route::post('/society/save',   [SocietyController::class, 'saveSocietyByAuth']);
     Route::get('/farmers',       [FarmerController::class,       'getAllFarmers']);
+    Route::post('/farmer/save',  [FarmerController::class,       'saveFarmerByAuth']);
     Route::get('/establishments',[EstablishmentController::class,'getAllEstablishments']);
     Route::get('/plots',         [PlotController::class,         'getAllPlots']);
     Route::get('/crop-plans',    [CropPlanController::class,     'getAllCropPlans']);

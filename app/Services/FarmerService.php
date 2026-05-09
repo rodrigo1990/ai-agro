@@ -18,8 +18,13 @@ class FarmerService
         return $this->repository->getAll($userId);
     }
 
-    public function saveFarmerByUserId(int $userId, array $data): ?Farmer
+    public function getFarmerById(int $id): ?Farmer
     {
-        return $this->repository->save($userId, $data);
+        return $this->repository->findById($id);
+    }
+
+    public function saveOrUpdate(int $userId, array $data): bool
+    {
+        return $this->repository->saveOrUpdate($userId, $data);
     }
 }

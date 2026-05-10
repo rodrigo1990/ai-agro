@@ -10,6 +10,6 @@ class CampaignRepository implements CampaignRepositoryInterface
 {
     public function getAll(): Collection
     {
-        return Campaign::all();
+        return Campaign::with(['farmer', 'establishment'])->get();
     }
 }

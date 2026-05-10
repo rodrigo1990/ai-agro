@@ -24,8 +24,14 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/society/',   [SocietyController::class, 'getSocietyByAuth']);
     Route::post('/society/save',   [SocietyController::class, 'saveSocietyByAuth']);
     Route::get('/farmers',       [FarmerController::class,       'getAllFarmers']);
-    Route::get('/establishments',[EstablishmentController::class,'getAllEstablishments']);
-    Route::get('/plots',         [PlotController::class,         'getAllPlots']);
+    Route::get('/farmer/{id}',       [FarmerController::class,       'getFarmer']);
+    Route::post('/farmer/saveOrUpdate',  [FarmerController::class,       'saveOrUpdate']);
+    Route::get('/establishments',           [EstablishmentController::class, 'getAllEstablishments']);
+    Route::get('/establishment/{id}',       [EstablishmentController::class, 'getEstablishment']);
+    Route::post('/establishment/saveOrUpdate', [EstablishmentController::class, 'saveOrUpdate']);
+    Route::get('/plots',                    [PlotController::class,          'getAllPlots']);
+    Route::get('/plot/{id}',                [PlotController::class,          'getPlot']);
+    Route::post('/plot/saveOrUpdate',       [PlotController::class,          'saveOrUpdate']);
     Route::get('/crop-plans',    [CropPlanController::class,     'getAllCropPlans']);
     Route::get('/campaigns',     [CampaignController::class,     'getAllCampaigns']);
     Route::get('/contractors',   [ContractorController::class,   'getAllContractors']);

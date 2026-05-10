@@ -14,11 +14,10 @@ return new class extends Migration
     {
         Schema::create('farmers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('society_id')->constrained('societies')->onDelete('cascade');
             $table->string('name');
             $table->string('last_name')->nullable();
             $table->string('tax_id', 50)->nullable()->comment('Tax identification number');
-            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null')
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')
                 ->comment('Linked SIMA user account (Usuario Productor SIMA)');
             $table->string('external_code', 100)->nullable()->comment('External system reference code');
             $table->text('notes')->nullable();

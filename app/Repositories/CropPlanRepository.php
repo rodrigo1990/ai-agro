@@ -12,4 +12,9 @@ class CropPlanRepository implements CropPlanRepositoryInterface
     {
         return CropPlan::all();
     }
+
+    public function findById(int $id): ?CropPlan
+    {
+        return CropPlan::find($id);
+    }
 }

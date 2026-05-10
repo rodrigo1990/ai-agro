@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/plot/{id}',                [PlotController::class,          'getPlot']);
     Route::post('/plot/saveOrUpdate',       [PlotController::class,          'saveOrUpdate']);
     Route::get('/crop-plans',    [CropPlanController::class,     'getAllCropPlans']);
+    Route::get('/crop-plan/{id}', [CropPlanController::class,    'getCropPlan']);
     Route::get('/campaigns',     [CampaignController::class,     'getAllCampaigns']);
     Route::get('/contractors',   [ContractorController::class,   'getAllContractors']);
     Route::get('/labor-types',   [LaborTypeController::class,    'getAllLaborTypes']);

@@ -15,4 +15,15 @@ class CropPlanController extends Controller
     {
         return response()->json($this->service->getAllCropPlans());
     }
+
+    public function getCropPlan(int $id): JsonResponse
+    {
+        $cropPlan = $this->service->getCropPlanById($id);
+
+        if (!$cropPlan) {
+            return response()->json(['message' => 'Crop plan not found'], 404);
+        }
+
+        return response()->json($cropPlan);
+    }
 }

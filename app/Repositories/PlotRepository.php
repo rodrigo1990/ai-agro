@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Collection;
 
 class PlotRepository implements PlotRepositoryInterface
 {
-    public function getAll(): Collection
+    public function getAll(int $userId): Collection
     {
-        return Plot::all();
+        return Plot::whereHas('farmer', fn($q) => $q->where('user_id', $userId))
+            ->whereHas('establishment', fn($q) => $q->whereHas('farmer', fn($q) => $q->where('user_id', $userId)))
+            ->get();
     }
 
     public function findById(int $id): ?Plot

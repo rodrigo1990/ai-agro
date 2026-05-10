@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface PlotRepositoryInterface
 {
-    public function getAll(): Collection;
+    public function getAll(int $userId): Collection;
     public function findById(int $id): ?Plot;
     public function saveOrUpdate(array $data): ?Plot;
 }

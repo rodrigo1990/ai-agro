@@ -12,9 +12,9 @@ class PlotController extends Controller
         private readonly PlotService $service,
     ) {}
 
-    public function getAllPlots(): JsonResponse
+    public function getAllPlots(Request $request): JsonResponse
     {
-        return response()->json($this->service->getAllPlots());
+        return response()->json($this->service->getAllPlots($request->user()->id));
     }
 
     public function getPlot(Request $request, int $id): JsonResponse

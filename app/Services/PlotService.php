@@ -12,9 +12,9 @@ class PlotService
         private readonly PlotRepositoryInterface $repository,
     ) {}
 
-    public function getAllPlots(): Collection
+    public function getAllPlots(int $userId): Collection
     {
-        return $this->repository->getAll();
+        return $this->repository->getAll($userId);
     }
 
     public function getPlotById(int $id): ?Plot

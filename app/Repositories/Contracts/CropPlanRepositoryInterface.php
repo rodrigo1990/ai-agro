@@ -9,4 +9,5 @@ interface CropPlanRepositoryInterface
 {
     public function getAll(): Collection;
     public function findById(int $id): ?CropPlan;
+    public function saveOrUpdate(array $data): ?CropPlan;
 }

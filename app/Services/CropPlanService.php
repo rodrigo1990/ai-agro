@@ -21,4 +21,9 @@ class CropPlanService
     {
         return $this->repository->findById($id);
     }
+
+    public function saveOrUpdate(array $data): ?CropPlan
+    {
+        return $this->repository->saveOrUpdate($data);
+    }
 }

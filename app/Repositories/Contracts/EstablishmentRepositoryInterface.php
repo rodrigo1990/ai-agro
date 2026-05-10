@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 interface EstablishmentRepositoryInterface
 {
-    public function getAll(): Collection;
+    public function getAll(int $userId): Collection;
     public function findById(int $id): ?Establishment;
     public function saveOrUpdate(array $data): ?Establishment;
 }

@@ -12,9 +12,9 @@ class EstablishmentService
         private readonly EstablishmentRepositoryInterface $repository,
     ) {}
 
-    public function getAllEstablishments(): Collection
+    public function getAllEstablishments(int $userId): Collection
     {
-        return $this->repository->getAll();
+        return $this->repository->getAll($userId);
     }
 
     public function getEstablishmentById(int $id): ?Establishment

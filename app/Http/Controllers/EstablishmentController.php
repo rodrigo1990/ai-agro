@@ -12,9 +12,9 @@ class EstablishmentController extends Controller
         private readonly EstablishmentService $service,
     ) {}
 
-    public function getAllEstablishments(): JsonResponse
+    public function getAllEstablishments(Request $request): JsonResponse
     {
-        return response()->json($this->service->getAllEstablishments());
+        return response()->json($this->service->getAllEstablishments($request->user()->id));
     }
 
     public function getEstablishment(Request $request, int $id): JsonResponse

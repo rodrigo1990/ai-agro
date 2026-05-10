@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Collection;
 
 class EstablishmentRepository implements EstablishmentRepositoryInterface
 {
-    public function getAll(): Collection
+    public function getAll(int $userId): Collection
     {
-        return Establishment::all();
+        return Establishment::whereHas('farmer', fn($q) => $q->where('user_id', $userId))->get();
     }
 
     public function findById(int $id): ?Establishment
